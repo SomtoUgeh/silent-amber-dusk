@@ -1,4 +1,4 @@
-import { SERVER_XCSRF_TOKEN } from "./config.js";
+import { SERVER_XCSRF_TOKEN } from "./config.ts";
 
 export function csrfMiddleware(req, res, next) {
   if (req.method !== "POST") {

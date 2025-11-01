@@ -1,4 +1,4 @@
-import { FAKER_SEED } from "./config.js";
+import { FAKER_SEED } from "./config.ts";
 import { faker } from "@faker-js/faker";
 
 faker.seed(FAKER_SEED);
