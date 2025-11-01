@@ -1,11 +1,11 @@
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = "http://localhost:3001/api";
 
 export type LoanType =
-  | 'Flexi-Loan'
-  | 'Business Loan'
-  | 'Cash Advance'
-  | 'RLS'
-  | 'CBILS';
+  | "Flexi-Loan"
+  | "Business Loan"
+  | "Cash Advance"
+  | "RLS"
+  | "CBILS";
 
 export type LoanHistory = {
   loan_started: string;
@@ -47,10 +47,12 @@ function parseLinkHeader(linkHeader: string | null): PaginationMetadata {
   }
 
   // Link header format: <url>; rel="next", <url>; rel="last", etc.
-  const links = linkHeader.split(',');
+  const links = linkHeader.split(",");
   const hasNextPage = links.some((link) => {
     const trimmedLink = link.trim().toLowerCase();
-    return trimmedLink.includes('rel="next"') || trimmedLink.includes("rel='next'");
+    return (
+      trimmedLink.includes('rel="next"') || trimmedLink.includes("rel='next'")
+    );
   });
 
   return { hasNextPage };
@@ -61,7 +63,7 @@ function parseLinkHeader(linkHeader: string | null): PaginationMetadata {
  */
 export async function fetchApplications(
   page: number,
-  limit: number = 5
+  limit: number = 5,
 ): Promise<ApplicationsResponse> {
   try {
     const url = `${API_BASE_URL}/applications?_page=${page}&_limit=${limit}`;
@@ -74,11 +76,11 @@ export async function fetchApplications(
     const data = await response.json();
 
     if (!Array.isArray(data)) {
-      throw new Error('Invalid response: expected an array of applications');
+      throw new Error("Invalid response: expected an array of applications");
     }
 
     const applications: Application[] = data;
-    const linkHeader = response.headers.get('Link');
+    const linkHeader = response.headers.get("Link");
     const pagination = parseLinkHeader(linkHeader);
 
     return { applications, pagination };
@@ -87,7 +89,6 @@ export async function fetchApplications(
       throw error;
     }
 
-    throw new Error('Unknown error occurred while fetching applications');
+    throw new Error("Unknown error occurred while fetching applications");
   }
 }
-

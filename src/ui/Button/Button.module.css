@@ -1,36 +1,36 @@
 .button {
-  background-color: var(--color-denim-15);
-  border: 2px solid transparent;
-  line-height: 1.5;
-  border-radius: 8px;
-  color: var(--color-white-100);
-  font-family: "Aesop", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  padding: 8px 24px;
-  text-align: center;
-  white-space: nowrap;
-  transition: background-color 0.3s;
-  box-shadow: 0px 15px 25px 0px rgba(170, 190, 209, 0.2);
+    background-color: var(--color-denim-15);
+    border: 2px solid transparent;
+    line-height: 1.5;
+    border-radius: 8px;
+    color: var(--color-white-100);
+    font-family: "Aesop", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 8px 24px;
+    text-align: center;
+    white-space: nowrap;
+    transition: background-color 0.3s;
+    box-shadow: 0px 15px 25px 0px rgba(170, 190, 209, 0.2);
 }
 
 .button:focus {
-  box-shadow: 0 0px 0 2px var(--color-denim-65);
-  outline: none;
+    box-shadow: 0 0px 0 2px var(--color-denim-65);
+    outline: none;
 }
 
 .button:hover:not(:disabled) {
-  background-color: var(--color-denim-30);
-  cursor: pointer;
-  transition: background-color 0.3s;
+    background-color: var(--color-denim-30);
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .button:active {
-  background-color: var(--color-denim-25);
-  box-shadow: inset 0px 0px 15px rgba(12, 35, 64, 0.4);
-  transition: box-shadow 0.3s;
+    background-color: var(--color-denim-25);
+    box-shadow: inset 0px 0px 15px rgba(12, 35, 64, 0.4);
+    transition: box-shadow 0.3s;
 }
 
 .button:disabled {
-  opacity: 0.5;
+    opacity: 0.5;
 }

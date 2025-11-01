@@ -11,7 +11,7 @@ export function contentTypeMiddleware(req, res, next) {
         error: "Unsupported Content-Type",
         detail:
           'The provided Content-Type doesn\'t match the supported Content-Type of "application/json"',
-      })
+      }),
     );
   }
 

@@ -12,7 +12,7 @@ export function csrfMiddleware(req, res, next) {
         error: "Permission Denied: X-CSRF token required",
         detail:
           'Retrieve your X-CSRF token from "/api/auth/xcsrftoken/" and set it as a "x-csrftoken" header',
-      })
+      }),
     );
   }
 
@@ -21,7 +21,7 @@ export function csrfMiddleware(req, res, next) {
       JSON.stringify({
         error: "Permission Denied: X-CSRF token incorrect",
         detail: "Make sure you are sending the correct token",
-      })
+      }),
     );
   }
 

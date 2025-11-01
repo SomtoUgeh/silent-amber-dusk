@@ -11,13 +11,11 @@ const SingleApplication = ({ application }: SingleApplicationProps) => {
   const headingId = `application-${application.id}-heading`;
 
   return (
-    <article
-      className={styles.SingleApplication}
-      aria-labelledby={headingId}
-    >
+    <article className={styles.SingleApplication} aria-labelledby={headingId}>
       <h2 id={headingId} className={styles.srOnly}>
         Application {application.id}: {application.company}
       </h2>
+
       <dl className={styles.cardContent}>
         <div className={`${styles.field} ${styles.fieldCompany}`}>
           <dt className={styles.fieldLabel}>Company</dt>
@@ -47,7 +45,9 @@ const SingleApplication = ({ application }: SingleApplicationProps) => {
         <div className={`${styles.field} ${styles.fieldAmount}`}>
           <dt className={styles.fieldLabel}>Loan amount</dt>
           <dd className={styles.fieldValue}>
-            <span aria-label={`${formatCurrency(application.loan_amount)} British pounds`}>
+            <span
+              aria-label={`${formatCurrency(application.loan_amount)} British pounds`}
+            >
               {formatCurrency(application.loan_amount)}
             </span>
           </dd>
