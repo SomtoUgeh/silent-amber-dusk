@@ -1,23 +1,224 @@
 .SingleApplication {
-  display: grid;
-  grid-template-columns: 15% 15% auto 15% 15% 15%;
-  padding: 20px;
-
-  background-color: white;
-  box-shadow: 0px 5px 16px 0px rgba(173, 200, 215, 0.25);
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  background-color: var(--color-white-100);
+  border: 1px solid var(--color-london-90);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0px 5px 16px 0px rgba(0, 0, 0, 0.05);
 }
 
-.cell {
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+
+/* On mobile, stack fields vertically */
+@media (max-width: 768px) {
+  .cardContent {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+dt,
+dd {
+  margin: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldLabel {
+  font-family: "Aesop", sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-white-45);
   text-align: left;
-  border-right: 1px solid #eee;
-  padding: 0 15px;
 }
 
-.cell sub {
+.fieldValue {
+  font-family: "Aesop", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--color-denim-15);
+  text-align: left;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+.fieldValueEmail {
+  color: var(--color-denim-45);
+}
+
+.emailLink {
+  text-decoration: none;
+  color: var(--color-denim-45);
   display: block;
-  font-size: 0.8rem;
-  color: #999;
-  margin-bottom: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.fieldEmail .fieldValue {
+  display: block;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+}
+
+.emailLink:hover,
+.emailLink:focus {
+  text-decoration: underline;
+}
+
+.emailLink:focus {
+  outline: 2px solid var(--color-denim-45);
+  outline-offset: 2px;
+}
+
+.fieldAmount,
+.fieldDate,
+.fieldExpiry {
+  text-align: right;
+}
+
+.fieldAmount .fieldLabel,
+.fieldDate .fieldLabel,
+.fieldExpiry .fieldLabel {
+  text-align: right;
+}
+
+.fieldAmount .fieldValue,
+.fieldDate .fieldValue,
+.fieldExpiry .fieldValue {
+  text-align: right;
+}
+
+/* On mobile, align all fields to left for better readability */
+@media (max-width: 768px) {
+  .fieldAmount,
+  .fieldDate,
+  .fieldExpiry {
+    text-align: left;
+  }
+
+  .fieldAmount .fieldLabel,
+  .fieldDate .fieldLabel,
+  .fieldExpiry .fieldLabel {
+    text-align: left;
+  }
+
+  .fieldAmount .fieldValue,
+  .fieldDate .fieldValue,
+  .fieldExpiry .fieldValue {
+    text-align: left;
+  }
+}
+
+.fieldCompany {
+  flex: 0 0 208px;
+  min-width: 0;
+}
+
+.fieldName {
+  flex: 0 0 160px;
+  min-width: 0;
+}
+
+.fieldEmail {
+  flex: 1 1 248px;
+  min-width: 200px;
+  max-width: 280px;
+  overflow: hidden;
+}
+
+.fieldAmount {
+  flex: 0 0 120px;
+  min-width: 0;
+}
+
+.fieldDate {
+  flex: 0 0 120px;
+  min-width: 0;
+}
+
+.fieldExpiry {
+  flex: 0 0 128px;
+  min-width: 0;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .cardContent {
+    gap: 16px;
+  }
+
+  .fieldCompany {
+    flex: 0 0 180px;
+  }
+
+  .fieldName {
+    flex: 0 0 140px;
+  }
+
+  .fieldEmail {
+    flex: 1 1 200px;
+    max-width: 240px;
+  }
+
+  .fieldAmount {
+    flex: 0 0 100px;
+  }
+
+  .fieldDate {
+    flex: 0 0 100px;
+  }
+
+  .fieldExpiry {
+    flex: 0 0 100px;
+  }
+}
+
+/* On mobile, make all fields full width */
+@media (max-width: 768px) {
+  .fieldCompany,
+  .fieldName,
+  .fieldEmail,
+  .fieldAmount,
+  .fieldDate,
+  .fieldExpiry {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .emailLink {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    word-break: break-all;
+  }
 }
