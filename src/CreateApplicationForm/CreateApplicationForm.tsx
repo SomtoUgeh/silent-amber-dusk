@@ -4,7 +4,6 @@ import {
   RegisterOptions,
   useForm,
   useFormContext,
-  UseFormRegister,
   UseFormReturn,
 } from "react-hook-form";
 import { Button } from "../ui/Button/Button";
@@ -124,7 +123,7 @@ const useFormField = (id: string) => {
   const hasSubmitted = formState.submitCount > 0;
   const error = castErrorToString(formState.errors[id]);
   const showError = Boolean(
-    (hasSubmitted || formState.touchedFields[id]) && error
+    (hasSubmitted || formState.touchedFields[id]) && error,
   );
 
   return {

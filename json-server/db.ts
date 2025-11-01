@@ -70,7 +70,7 @@ type TLoanHistory = {
 };
 
 function fakeLoanHistory(): TLoanHistory[] {
-  let history: TLoanHistory[] = [];
+  const history: TLoanHistory[] = [];
 
   for (let index = 0; index < faker.number.int(10); index++) {
     const currentDate = new Date();
