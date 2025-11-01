@@ -1,5 +1,36 @@
 .Applications {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 0 144px;
+}
+
+@media (max-width: 1440px) {
+  .Applications {
+    padding: 0 72px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .Applications {
+    padding: 0 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Applications {
+    padding: 0 24px;
+  }
+}
+
+.loadMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.loadingMessage,
+.errorMessage {
+  text-align: center;
+  padding: 48px 24px;
 }
